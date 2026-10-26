@@ -5,11 +5,16 @@ on:
     branches:
       - main
       - master
+    tags:
+      - "v*"
   pull_request:
     branches:
       - main
       - master
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build-unsigned-ipa:
@@ -40,7 +45,6 @@ jobs:
       - name: Generate Xcode Project from project.yml
         run: |
           xcodegen generate
-          # Ensure compatibility with Xcode 15.x and 16.x by replacing objectVersion 77 -> 56 if present
           sed -i '' 's/objectVersion = 77;/objectVersion = 56;/g' AdShieldPro.xcodeproj/project.pbxproj
           sed -i '' 's/preferredProjectObjectVersion = 77;/preferredProjectObjectVersion = 56;/g' AdShieldPro.xcodeproj/project.pbxproj
 
@@ -82,3 +86,21 @@ jobs:
           path: AdShieldPro-Unsigned.ipa
           if-no-files-found: error
           retention-days: 30
+
+      - name: Publish Unsigned IPA to GitHub Releases
+        if: github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          name: "AdShield Pro v1.0.${{ github.run_number }} (Unsigned IPA)"
+          body: |
+            ### AdShield Pro - Bản Build Tự Động #${{ github.run_number }}
+            - **File cài đặt:** `AdShieldPro-Unsigned.ipa` (chưa ký, đã gắn fake-sign `ldid` cho TrollStore / ESign / Feather / Sideloadly / AltStore).
+            - **Commit:** `${{ github.sha }}`
+            - **Tính năng:** Chặn quảng cáo toàn hệ thống qua DNS-over-HTTPS (DoH) + Safari Content Blocker Extension.
+          files: AdShieldPro-Unsigned.ipa
+          draft: false
+          prerelease: false
+          make_latest: "true"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
