@@ -1,7 +1,16 @@
 [
   {
     "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?doubleclick\\.net[:/]",
+      "url-filter": ".*",
+      "resource-type": ["popup"]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?(doubleclick\\.net|googleadservices\\.com|googlesyndication\\.com|moatads\\.com|2mdn\\.net)[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -10,7 +19,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?googleadservices\\.com[:/]",
+      "url-filter": "^https?://+([^/:]+\\.)?(applovin\\.com|applvn\\.com|unity3d\\.com|supersonicads\\.com|isprog\\.com|vungle\\.com|rayjump\\.com|mintegral\\.com|chartboost\\.com|inmobi\\.com|adcolony\\.com|tapjoy\\.com|startappservice\\.com|fyber\\.com|pangle\\.io|byteoversea\\.com)[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -19,7 +28,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?googlesyndication\\.com[:/]",
+      "url-filter": "^https?://+([^/:]+\\.)?(taboola\\.com|outbrain\\.com|criteo\\.com|criteo\\.net|mgid\\.com|adskeeper\\.com|adskeeper\\.co\\.uk|revcontent\\.com|zergnet\\.com|teads\\.tv)[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -28,7 +37,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?applovin\\.com[:/]",
+      "url-filter": "^https?://+([^/:]+\\.)?(popads\\.net|popcash\\.net|propellerads\\.com|adsterra\\.com|adsterratools\\.com|highperformanceformat\\.com|profitabledisplaynetwork\\.com|exoclick\\.com|exosrv\\.com|juicyads\\.com|trafficjunky\\.net|trafficstars\\.com|clickadu\\.com|hilltopads\\.net|galaksion\\.com|mondiad\\.com|admaven\\.com|bidvertiser\\.com|ero-advertising\\.com|plugrush\\.com|a-ads\\.com|adxpansion\\.com|popmyads\\.com|onclickads\\.net|onclkds\\.com)[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -37,7 +46,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?unity3d\\.com[:/]",
+      "url-filter": "^https?://+([^/:]+\\.)?(admicro\\.vn|vcmedia\\.vn|eclick\\.vn|ambientplatform\\.vn|ants\\.vn|adflex\\.vn|accesstrade\\.vn|novaon\\.asia|adx\\.vn|yomedia\\.vn|adinall\\.com|adop\\.cc|adtima\\.vn|tima\\.vn)[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -46,7 +55,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?supersonicads\\.com[:/]",
+      "url-filter": "^https?://+([^/:]+\\.)?(k88|du88|man88|xibet|uk88|ok9|shbet|hi88|jun88|new88|f8bet|789bet|mb66|8kbet|go88|sunwin|rikvip|hitclub|b52club|kubet|ku11|tha88|bong88|sbobet|w88|m88|fun88|fb88|188bet|vn88|v9bet|bk8|dabet|fabet|debet|red88|zbet|five88|lucky88|mibet|nbet|one88|oxbet|sin88|sky88|sv88|ta88|uk88|xo88|bet88)[a-z0-9-]*\\.[a-z]+[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -55,8 +64,8 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?vungle\\.com[:/]",
-      "load-type": ["third-party", "first-party"]
+      "url-filter": "^https?://.*(/|_|-)(banners?|quangcao|quang-cao|qc|popups?|catfish|float-?ads?|sticky-?ads?|bet-?ads?|nha-?cai)(/|_|-|\\.).*\\.(gif|png|jpg|jpeg|webp)",
+      "resource-type": ["image"]
     },
     "action": {
       "type": "block"
@@ -64,70 +73,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?taboola\\.com[:/]",
-      "load-type": ["third-party", "first-party"]
-    },
-    "action": {
-      "type": "block"
-    }
-  },
-  {
-    "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?outbrain\\.com[:/]",
-      "load-type": ["third-party", "first-party"]
-    },
-    "action": {
-      "type": "block"
-    }
-  },
-  {
-    "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?criteo\\.com[:/]",
-      "load-type": ["third-party", "first-party"]
-    },
-    "action": {
-      "type": "block"
-    }
-  },
-  {
-    "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?popads\\.net[:/]",
-      "load-type": ["third-party", "first-party"]
-    },
-    "action": {
-      "type": "block"
-    }
-  },
-  {
-    "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?admicro\\.vn[:/]",
-      "load-type": ["third-party", "first-party"]
-    },
-    "action": {
-      "type": "block"
-    }
-  },
-  {
-    "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?eclick\\.vn[:/]",
-      "load-type": ["third-party", "first-party"]
-    },
-    "action": {
-      "type": "block"
-    }
-  },
-  {
-    "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?google-analytics\\.com[:/]",
-      "load-type": ["third-party"]
-    },
-    "action": {
-      "type": "block"
-    }
-  },
-  {
-    "trigger": {
-      "url-filter": "^https?://+([^/:]+\\.)?connect\\.facebook\\.net[:/]",
+      "url-filter": "^https?://+([^/:]+\\.)?(google-analytics\\.com|googletagmanager\\.com|appsflyer\\.com|adjust\\.com|branch\\.io|mixpanel\\.com|segment\\.io|hotjar\\.com|scorecardresearch\\.com|connect\\.facebook\\.net|clarity\\.ms)[:/]",
       "load-type": ["third-party"]
     },
     "action": {
@@ -140,7 +86,16 @@
     },
     "action": {
       "type": "css-display-none",
-      "selector": ".ad-banner, .adsbox, .adsbygoogle, .sponsored-post, .dfp-ad, .ad-container"
+      "selector": ".ad-banner, .adsbox, .adsbygoogle, .sponsored-post, .dfp-ad, .ad-container, #float_ck, #hide_float_ck, .float-ck, #catfish, .catfish, .catfish-ads, #catfish-ads, .banner-catfish, #banner-catfish, .ads-catfish, #ads-catfish, .popup-ads, #popup-ads, .modal-ads, #modal-ads, .ads-popup, #ads-popup, .overlay-ads, #overlay-ads, .qc-banner, .banner-qc, .list-qc, #qc-left, #qc-right, .qc-left, .qc-right, .ads-left, .ads-right, #ads-left, #ads-right, .float-ads, #float-ads, .floating-ads, #floating-ads, .sticky-ads, #sticky-ads, .bottom-ads, #bottom-ads, .top-ads, #top-ads, .header-ads, .footer-ads, .under-player-ads, .player-ads, .preload-ads, #preload-ads, .ads-pc, .ads-mb, .ads-mobile, .banner-top, .banner-bottom, .ad-slot, .ad-wrapper, .ad-unit, .ad-zone, .ad-space, .ad-holder, .ad-block, .widget_ads, .custom-ads, #div-gpt-ad"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": ".*"
+    },
+    "action": {
+      "type": "css-display-none",
+      "selector": "a[href*='k88'], a[href*='du88'], a[href*='man88'], a[href*='xibet'], a[href*='shbet'], a[href*='hi88'], a[href*='jun88'], a[href*='new88'], a[href*='f8bet'], a[href*='789bet'], a[href*='mb66'], a[href*='8kbet'], a[href*='go88'], a[href*='sunwin'], a[href*='rikvip'], a[href*='hitclub'], a[href*='kubet'], a[href*='bong88'], a[href*='w88'], a[href*='m88'], a[href*='fun88'], a[href*='fb88'], a[href*='188bet'], a[href*='vn88'], a[href*='bk8'], a[href*='dabet'], a[href*='fabet'], a[href*='debet'], a[href*='red88'], a[href*='zbet'], a[href*='five88'], a[href*='lucky88'], a[href*='oxbet'], a[href*='sin88'], a[href*='sky88'], a[href*='ta88'], a[href*='uk88'], a[href*='xo88'], a[href*='bet88'], a[target='_blank'] > img[src$='.gif']"
     }
   }
 ]
