@@ -10,8 +10,6 @@ struct ContentView: View {
     @State private var newRuleDomain: String = ""
     @State private var newRuleCategory: RuleCategory = .custom
     @State private var showAddRuleSheet: Bool = false
-    @State private var showExportAlert: Bool = false
-    @State private var exportedProfileURL: URL?
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -21,23 +19,29 @@ struct ContentView: View {
                 }
                 .tag(0)
 
-            dnsConfigTab
-                .tabItem {
-                    Label("Chặn App (DNS)", systemImage: "network.badge.shield.half.filled")
-                }
-                .tag(1)
-
             safariRulesTab
                 .tabItem {
                     Label("Chặn Safari", systemImage: "safari.fill")
                 }
+                .tag(1)
+
+            WebInspectorBrowserView()
+                .tabItem {
+                    Label("Nhấn Giữ Chặn", systemImage: "hand.tap.fill")
+                }
                 .tag(2)
+
+            dnsConfigTab
+                .tabItem {
+                    Label("Chặn App (DNS)", systemImage: "network.badge.shield.half.filled")
+                }
+                .tag(3)
 
             guideTab
                 .tabItem {
                     Label("Hướng Dẫn", systemImage: "book.closed.fill")
                 }
-                .tag(3)
+                .tag(4)
         }
         .accentColor(Color(red: 0.06, green: 0.83, blue: 0.60))
         .onAppear {
@@ -49,7 +53,7 @@ struct ContentView: View {
     private var dashboardTab: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 20) {
+                VStack(spacing: 18) {
                     // Hero Shield Card
                     VStack(spacing: 14) {
                         ZStack {
@@ -59,14 +63,14 @@ struct ContentView: View {
                                     ? Color.green.opacity(0.18)
                                     : Color.orange.opacity(0.15)
                                 )
-                                .frame(width: 110, height: 110)
+                                .frame(width: 100, height: 100)
 
-                            Image(systemName: adBlockManager.isSystemDNSActive ? "checkmark.shield.fill" : "exclamationmark.shield.fill")
-                                .font(.system(size: 54))
-                                .foregroundColor(adBlockManager.isSystemDNSActive ? .green : .orange)
+                            Image(systemName: adBlockManager.isSystemDNSActive ? "checkmark.shield.fill" : "shield.lefthalf.filled")
+                                .font(.system(size: 50))
+                                .foregroundColor(adBlockManager.isSystemDNSActive ? .green : .mint)
                         }
 
-                        Text(adBlockManager.isSystemDNSActive ? "Đang Bảo Vệ Toàn Hệ Thống" : "Chưa Bật Chặn Toàn Hệ Thống")
+                        Text(adBlockManager.isSystemDNSActive ? "Đang Bảo Vệ Toàn Hệ Thống" : "Trung Tâm Chống Quảng Cáo")
                             .font(.title3.bold())
 
                         Text(adBlockManager.statusMessage)
@@ -107,9 +111,68 @@ struct ContentView: View {
                             }
                         }
                     }
-                    .padding(20)
+                    .padding(18)
                     .background(Color(.secondarySystemGroupedBackground))
                     .cornerRadius(18)
+
+                    // Quick Toggles for Navigation Lock & Long-Press Zapper
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Image(systemName: "lock.shield.fill")
+                                .foregroundColor(.green)
+                            Text("Chống Nhảy Trang & Nhấn Giữ Chặn Panel")
+                                .font(.subheadline.bold())
+                        }
+
+                        Toggle(isOn: Binding(
+                            get: { ruleStore.strictLockAllLinks },
+                            set: { newVal in
+                                ruleStore.strictLockAllLinks = newVal
+                                ruleStore.reloadSafariContentBlocker()
+                            }
+                        )) {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Khóa Mở Trang Khác (Strict Link Lock)")
+                                    .font(.subheadline.weight(.semibold))
+                                Text("Khi bật: Bấm vào bất kỳ liên kết nào trên trang cũng không mở trang mới")
+                                    .font(.caption2)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+
+                        Divider()
+
+                        Toggle(isOn: Binding(
+                            get: { ruleStore.blockExternalNavigation },
+                            set: { newVal in
+                                ruleStore.blockExternalNavigation = newVal
+                                ruleStore.reloadSafariContentBlocker()
+                            }
+                        )) {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Chặn Tự Động Nhảy Tab Quảng Cáo Lạ")
+                                    .font(.subheadline.weight(.semibold))
+                                Text("Chặn web phim tự mở tab nhà cái / Shopee / Lazada khi chạm màn hình")
+                                    .font(.caption2)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+
+                        Divider()
+
+                        Toggle(isOn: $ruleStore.longPressZapEnabled) {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Nhấn Giữ Vào Panel Trên Web Để Chặn")
+                                    .font(.subheadline.weight(.semibold))
+                                Text("Nhấn giữ 0.6 giây vào bất kỳ khung quảng cáo nào để xóa vĩnh viễn")
+                                    .font(.caption2)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                    }
+                    .padding(16)
+                    .background(Color(.secondarySystemGroupedBackground))
+                    .cornerRadius(16)
 
                     // Status Grid
                     HStack(spacing: 14) {
@@ -123,29 +186,29 @@ struct ContentView: View {
 
                         statusCard(
                             title: "Safari Blocker",
-                            value: "\(ruleStore.rules.filter(\.isEnabled).count) quy tắc",
-                            subtitle: adBlockManager.isSafariBlockerEnabled ? "Đã kích hoạt" : "Kiểm tra Cài đặt",
+                            value: "220+ quy tắc",
+                            subtitle: ruleStore.safariReloadStatus,
                             icon: "safari.fill",
-                            color: adBlockManager.isSafariBlockerEnabled ? .blue : .orange
+                            color: .blue
                         )
                     }
 
-                    // Quick Profile Fallback Card (Very helpful for unsigned/sideloaded IPA users)
+                    // Quick Profile Fallback Card
                     VStack(alignment: .leading, spacing: 10) {
                         HStack {
                             Image(systemName: "doc.badge.gearshape.fill")
                                 .foregroundColor(.mint)
-                            Text("Chế độ Sideload / Chứng chỉ Free (AltStore, TrollStore, ESign)")
+                            Text("Xuất Cấu Hình DNS (.mobileconfig)")
                                 .font(.subheadline.bold())
                         }
-                        Text("Nếu chứng chỉ ký IPA của bạn không có quyền Network Extension trả phí của Apple, bạn có thể xuất trực tiếp file cấu hình DNS (.mobileconfig) để cài vào Cài đặt iPhone chỉ với 1 chạm.")
+                        Text("Dành cho máy cài IPA qua chứng chỉ miễn phí (ESign, AltStore, Sideloadly): cài đặt trực tiếp cấu hình DNS-over-HTTPS vào Cài đặt iPhone.")
                             .font(.caption)
                             .foregroundColor(.secondary)
 
                         Button(action: exportMobileConfigFile) {
                             HStack {
                                 Image(systemName: "square.and.arrow.up")
-                                Text("Xuất Cấu Hình DNS (.mobileconfig)")
+                                Text("Cài Cấu Hình DNS Toàn Hệ Thống")
                                     .fontWeight(.medium)
                             }
                             .frame(maxWidth: .infinity)
@@ -192,7 +255,174 @@ struct ContentView: View {
         .cornerRadius(14)
     }
 
-    // MARK: - Tab 2: DNS Config for All Apps
+    // MARK: - Tab 2: Safari Content Blocker Rules & Link Lock
+    private var safariRulesTab: some View {
+        NavigationView {
+            List {
+                Section(header: Text("Đồng Bộ & Trạng Thái Safari")) {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Đồng bộ quy tắc với Safari")
+                                .font(.subheadline.bold())
+                            Text(ruleStore.safariReloadStatus)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        Button(action: {
+                            ruleStore.reloadSafariContentBlocker()
+                        }) {
+                            HStack(spacing: 6) {
+                                if ruleStore.isReloadingSafari {
+                                    ProgressView()
+                                } else {
+                                    Image(systemName: "arrow.triangle.2.circlepath")
+                                }
+                                Text("Cập nhật")
+                                    .font(.caption.bold())
+                            }
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 8)
+                            .background(Color.green.opacity(0.2))
+                            .foregroundColor(.green)
+                            .cornerRadius(8)
+                        }
+                    }
+                }
+
+                Section(header: Text("Chặn Mở Trang Khác & Nhấn Giữ Xóa Khung")) {
+                    Toggle(isOn: Binding(
+                        get: { ruleStore.strictLockAllLinks },
+                        set: { val in
+                            ruleStore.strictLockAllLinks = val
+                            ruleStore.reloadSafariContentBlocker()
+                        }
+                    )) {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Khóa Mọi Liên Kết (Bấm Vào Link Không Mở)")
+                                .font(.subheadline.weight(.medium))
+                            Text("Chặn hoàn toàn việc mở sang trang khác khi bấm vào liên kết")
+                                .font(.caption2)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+
+                    Toggle(isOn: Binding(
+                        get: { ruleStore.blockExternalNavigation },
+                        set: { val in
+                            ruleStore.blockExternalNavigation = val
+                            ruleStore.reloadSafariContentBlocker()
+                        }
+                    )) {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Chặn Tự Động Nhảy Sang Trang Quảng Cáo Lạ")
+                                .font(.subheadline.weight(.medium))
+                            Text("Chặn popup và chặn mở tên miền bên thứ 3")
+                                .font(.caption2)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+
+                    Toggle(isOn: $ruleStore.longPressZapEnabled) {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Nhấn Giữ (0.6s) Vào Panel Trên Web Để Chặn")
+                                .font(.subheadline.weight(.medium))
+                            Text("Hoạt động trên Safari (qua AdShield Web Guard) và tab Nhấn Giữ Chặn")
+                                .font(.caption2)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                }
+
+                if !ruleStore.zappedSelectors.isEmpty {
+                    Section(header: Text("Các Khung Panel Bạn Đã Nhấn Giữ Chặn (\(ruleStore.zappedSelectors.count))")) {
+                        ForEach(ruleStore.zappedSelectors, id: \.self) { sel in
+                            Text(sel)
+                                .font(.system(.caption, design: .monospaced))
+                                .foregroundColor(.mint)
+                        }
+                        .onDelete(perform: ruleStore.removeZappedSelector)
+                    }
+                }
+
+                ForEach(RuleCategory.allCases, id: \.self) { category in
+                    let categoryRules = ruleStore.rules.filter { $0.category == category }
+                    if !categoryRules.isEmpty {
+                        Section(header: Text("\(category.rawValue) (\(categoryRules.count))")) {
+                            ForEach(categoryRules) { rule in
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 3) {
+                                        Text(rule.name)
+                                            .font(.subheadline.weight(.medium))
+                                        Text(rule.domainOrSelector)
+                                            .font(.system(.caption2, design: .monospaced))
+                                            .foregroundColor(.secondary)
+                                            .lineLimit(2)
+                                    }
+                                    Spacer()
+                                    Toggle("", isOn: Binding(
+                                        get: { rule.isEnabled },
+                                        set: { _ in ruleStore.toggleRule(rule) }
+                                    ))
+                                    .labelsHidden()
+                                }
+                            }
+                            .onDelete { offsets in
+                                let toDeleteIDs = offsets.map { categoryRules[$0].id }
+                                ruleStore.rules.removeAll { toDeleteIDs.contains($0.id) }
+                                ruleStore.saveRules()
+                            }
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Bộ Lọc Safari")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { showAddRuleSheet = true }) {
+                        Label("Thêm quy tắc", systemImage: "plus.circle.fill")
+                    }
+                }
+            }
+            .sheet(isPresented: $showAddRuleSheet) {
+                NavigationView {
+                    Form {
+                        Section(header: Text("Thông tin quy tắc mới")) {
+                            TextField("Tên gợi nhớ (VD: Banner trang phim)", text: $newRuleName)
+                            TextField("Tên miền hoặc CSS Selector (VD: #float_ck, .banner-qc)", text: $newRuleDomain)
+                                .autocapitalization(.none)
+                            Picker("Phân loại", selection: $newRuleCategory) {
+                                ForEach(RuleCategory.allCases, id: \.self) { cat in
+                                    Text(cat.rawValue).tag(cat)
+                                }
+                            }
+                        }
+                    }
+                    .navigationTitle("Thêm Quy Tắc Chặn")
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Hủy") { showAddRuleSheet = false }
+                        }
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Lưu") {
+                                ruleStore.addCustomRule(
+                                    name: newRuleName,
+                                    domainOrSelector: newRuleDomain,
+                                    category: newRuleCategory
+                                )
+                                newRuleName = ""
+                                newRuleDomain = ""
+                                showAddRuleSheet = false
+                                ruleStore.reloadSafariContentBlocker()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - Tab 4: DNS Config for All Apps
     private var dnsConfigTab: some View {
         NavigationView {
             Form {
@@ -244,7 +474,7 @@ struct ContentView: View {
 
                 Section(
                     header: Text("Loại trừ mạng Wi-Fi (Tùy chọn)"),
-                    footer: Text("Nhập tên mạng Wi-Fi (cách nhau bởi dấu phẩy) nếu bạn muốn tự động tắt DNS khi kết nối vào mạng nội bộ công ty.")
+                    footer: Text("Nhập tên mạng Wi-Fi (cách nhau bởi dấu phẩy) nếu bạn muốn tự động tắt DNS khi kết nối vào mạng nội bộ.")
                 ) {
                     TextField("Ví dụ: Office_WiFi, Home_LAN", text: $adBlockManager.excludedWiFiSSIDs)
                 }
@@ -268,144 +498,26 @@ struct ContentView: View {
         }
     }
 
-    // MARK: - Tab 3: Safari Content Blocker Rules
-    private var safariRulesTab: some View {
-        NavigationView {
-            List {
-                Section {
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Đồng bộ quy tắc với Safari")
-                                .font(.subheadline.bold())
-                            Text(ruleStore.safariReloadStatus)
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                        Spacer()
-                        Button(action: {
-                            ruleStore.reloadSafariContentBlocker()
-                        }) {
-                            HStack(spacing: 6) {
-                                if ruleStore.isReloadingSafari {
-                                    ProgressView()
-                                } else {
-                                    Image(systemName: "arrow.triangle.2.circlepath")
-                                }
-                                Text("Cập nhật")
-                                    .font(.caption.bold())
-                            }
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 8)
-                            .background(Color.green.opacity(0.2))
-                            .foregroundColor(.green)
-                            .cornerRadius(8)
-                        }
-                    }
-                }
-
-                ForEach(RuleCategory.allCases, id: \.self) { category in
-                    let categoryRules = ruleStore.rules.filter { $0.category == category }
-                    if !categoryRules.isEmpty {
-                        Section(header: Text(category.rawValue)) {
-                            ForEach(categoryRules) { rule in
-                                HStack {
-                                    VStack(alignment: .leading, spacing: 3) {
-                                        Text(rule.name)
-                                            .font(.subheadline.weight(.medium))
-                                        Text(rule.domainOrSelector)
-                                            .font(.system(.caption2, design: .monospaced))
-                                            .foregroundColor(.secondary)
-                                    }
-                                    Spacer()
-                                    Toggle("", isOn: Binding(
-                                        get: { rule.isEnabled },
-                                        set: { _ in ruleStore.toggleRule(rule) }
-                                    ))
-                                    .labelsHidden()
-                                }
-                            }
-                            .onDelete { offsets in
-                                let toDeleteIDs = offsets.map { categoryRules[$0].id }
-                                ruleStore.rules.removeAll { toDeleteIDs.contains($0.id) }
-                                ruleStore.saveRules()
-                            }
-                        }
-                    }
-                }
-            }
-            .navigationTitle("Bộ Lọc Safari")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { showAddRuleSheet = true }) {
-                        Label("Thêm miền", systemImage: "plus.circle.fill")
-                    }
-                }
-            }
-            .sheet(isPresented: $showAddRuleSheet) {
-                NavigationView {
-                    Form {
-                        Section(header: Text("Thông tin quy tắc mới")) {
-                            TextField("Tên gợi nhớ (VD: Quảng cáo báo chí)", text: $newRuleName)
-                            TextField("Tên miền hoặc CSS Selector (VD: ads.example.com)", text: $newRuleDomain)
-                                .autocapitalization(.none)
-                            Picker("Phân loại", selection: $newRuleCategory) {
-                                ForEach(RuleCategory.allCases, id: \.self) { cat in
-                                    Text(cat.rawValue).tag(cat)
-                                }
-                            }
-                        }
-                    }
-                    .navigationTitle("Thêm Quy Tắc Chặn")
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Hủy") { showAddRuleSheet = false }
-                        }
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button("Lưu") {
-                                ruleStore.addCustomRule(
-                                    name: newRuleName,
-                                    domainOrSelector: newRuleDomain,
-                                    category: newRuleCategory
-                                )
-                                newRuleName = ""
-                                newRuleDomain = ""
-                                showAddRuleSheet = false
-                                ruleStore.reloadSafariContentBlocker()
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    // MARK: - Tab 4: Setup Guide
+    // MARK: - Tab 5: Setup Guide
     private var guideTab: some View {
         NavigationView {
             List {
-                Section(header: Text("1. Kích hoạt chặn quảng cáo trên các App khác")) {
-                    Label("Bước 1: Mở tab 'Chặn App (DNS)', chọn AdGuard DNS hoặc Control D rồi bấm 'Áp Dụng Cấu Hình DNS'.", systemImage: "1.circle.fill")
-                    Label("Bước 2: Mở ứng dụng Cài đặt (Settings) trên iPhone > Cài đặt chung (General) > Quản lý VPN & Thiết bị (VPN & Device Management) > mục DNS > chọn 'AdShield Pro'.", systemImage: "2.circle.fill")
-                    Label("Lưu ý Sideload: Nếu bạn cài file IPA qua TrollStore / ESign / AltStore với chứng chỉ cá nhân không có quyền Network Extension, hãy bấm nút 'Xuất Cấu Hình DNS (.mobileconfig)' ở trang chủ để cài đặt trực tiếp vào máy.", systemImage: "info.circle.fill")
+                Section(header: Text("1. Bật cả 2 Phần Mở Rộng trong Safari")) {
+                    Label("Vào Cài đặt (Settings) > Safari > Phần mở rộng (Extensions).", systemImage: "1.circle.fill")
+                    Label("Bật 'AdShield Safari Blocker' (chặn 220+ mạng quảng cáo, nhà cái & ẩn banner).", systemImage: "2.circle.fill")
+                    Label("Bật 'AdShield Web Guard' và chọn 'Cho phép' trên mọi trang web để dùng tính năng: Khóa Mở Liên Kết & Nhấn Giữ 0.6s Vào Panel Để Chặn.", systemImage: "3.circle.fill")
                 }
 
-                Section(header: Text("2. Kích hoạt chặn quảng cáo trên Safari")) {
-                    Label("Bước 1: Mở Cài đặt (Settings) trên iPhone > chọn Safari > Phần mở rộng (Extensions).", systemImage: "1.circle.fill")
-                    Label("Bước 2: Bật công tắc 'AdShield Safari Blocker' và cấp quyền cho phép trên mọi trang web.", systemImage: "2.circle.fill")
-                    Label("Bước 3: Quay lại ứng dụng AdShield Pro > tab 'Chặn Safari' > bấm 'Cập nhật' để nạp danh sách quy tắc mới nhất.", systemImage: "3.circle.fill")
-                }
-
-                Section(header: Text("3. Phạm vi hoạt động")) {
-                    Text("• Chặn quảng cáo banner, pop-up và video xen kẽ trong các ứng dụng đọc báo, tiện ích, game mobile thông qua bộ lọc DNS mã hóa (DoH).\n• Chặn quảng cáo hiển thị, ẩn khung banner rỗng và chặn script theo dõi trên trình duyệt Safari nhờ WebKit Content Blocker.")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                Section(header: Text("2. Cách dùng tính năng Nhấn Giữ Chặn Panel & Khóa Link")) {
+                    Label("Trên Safari: Khi đã bật AdShield Web Guard, ở góc dưới bên phải trang web sẽ có nút '🛡️ AdShield'. Bấm vào nút đó để bật '🔒 Đang Khóa Mọi Link' (bấm vào bất kỳ liên kết nào cũng không mở sang trang khác).", systemImage: "lock.fill")
+                    Label("Nhấn giữ xóa khung: Nhấn giữ ngón tay khoảng 0.6 giây vào bất kỳ banner/panel quảng cáo nào trên trang web -> Hộp thoại hiện ra -> bấm 'Chặn Ngay' (hoặc 'Khung Lớn Hơn') để xóa vĩnh viễn khung đó.", systemImage: "hand.tap.fill")
+                    Label("Bạn cũng có thể mở tab 'Nhấn Giữ Chặn' ngay trong ứng dụng AdShield Pro để duyệt web, khóa liên kết và nhấn giữ chặn bất kỳ khung nào rồi đồng bộ thẳng sang Safari.", systemImage: "globe")
                 }
             }
-            .navigationTitle("Hướng Dẫn Cài Đặt")
+            .navigationTitle("Hướng Dẫn")
         }
     }
 
-    // MARK: - Export .mobileconfig Helper
     private func exportMobileConfigFile() {
         let xmlContent = adBlockManager.generateMobileConfigXML()
         let tempDir = FileManager.default.temporaryDirectory

@@ -34,8 +34,11 @@ targets:
     dependencies:
       - target: SafariBlocker
         embed: true
+      - target: SafariWebExtension
+        embed: true
       - sdk: NetworkExtension.framework
       - sdk: SafariServices.framework
+      - sdk: WebKit.framework
 
   SafariBlocker:
     type: app-extension
@@ -53,6 +56,28 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.adshield.pro.SafariBlocker
         INFOPLIST_FILE: SafariBlocker/Info.plist
         CODE_SIGN_ENTITLEMENTS: SafariBlocker/SafariBlocker.entitlements
+        SKIP_INSTALL: "YES"
+    dependencies:
+      - sdk: SafariServices.framework
+
+  SafariWebExtension:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - path: SafariWebExtension
+        excludes:
+          - "**/*.plist"
+          - "**/*.entitlements"
+          - "Resources/**"
+      - path: SafariWebExtension/Resources
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.adshield.pro.SafariWebExtension
+        INFOPLIST_FILE: SafariWebExtension/Info.plist
+        CODE_SIGN_ENTITLEMENTS: SafariWebExtension/SafariWebExtension.entitlements
         SKIP_INSTALL: "YES"
     dependencies:
       - sdk: SafariServices.framework

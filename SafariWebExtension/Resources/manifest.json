@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "default_locale": "en",
+  "name": "AdShield Web Guard",
+  "description": "Chặn mở trang khác (Khóa Liên Kết / Chặn Redirect) & Nhấn giữ để chặn khung quảng cáo trên Safari",
+  "version": "1.3.0",
+  "icons": {
+    "48": "icon-48.png",
+    "96": "icon-96.png",
+    "128": "icon-128.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "type": "module",
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AdShield Web Guard",
+    "default_icon": {
+      "48": "icon-48.png",
+      "96": "icon-96.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "nativeMessaging",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ]
+}

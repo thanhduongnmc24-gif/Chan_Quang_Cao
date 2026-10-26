@@ -45,7 +45,6 @@ jobs:
       - name: Generate Xcode Project from project.yml
         run: |
           xcodegen generate
-          # Ensure compatibility with Xcode 15.x and 16.x by replacing objectVersion 77 -> 56 if present
           sed -i '' 's/objectVersion = 77;/objectVersion = 56;/g' AdShieldPro.xcodeproj/project.pbxproj
           sed -i '' 's/preferredProjectObjectVersion = 77;/preferredProjectObjectVersion = 56;/g' AdShieldPro.xcodeproj/project.pbxproj
 
@@ -70,6 +69,9 @@ jobs:
           if [ -d "$APP_PATH/PlugIns/SafariBlocker.appex" ]; then
             ldid -SSafariBlocker/SafariBlocker.entitlements "$APP_PATH/PlugIns/SafariBlocker.appex/SafariBlocker" || true
           fi
+          if [ -d "$APP_PATH/PlugIns/SafariWebExtension.appex" ]; then
+            ldid -SSafariWebExtension/SafariWebExtension.entitlements "$APP_PATH/PlugIns/SafariWebExtension.appex/SafariWebExtension" || true
+          fi
           ldid -SAdShieldPro/AdShieldPro.entitlements "$APP_PATH/AdShieldPro" || true
 
       - name: Package into Unsigned IPA
@@ -92,13 +94,15 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.0.${{ github.run_number }}
-          name: "AdShield Pro v1.0.${{ github.run_number }} (Unsigned IPA)"
+          tag_name: v1.3.${{ github.run_number }}
+          name: "AdShield Pro v1.3.${{ github.run_number }} (Unsigned IPA)"
           body: |
-            ### AdShield Pro - Bản Build Tự Động #${{ github.run_number }}
-            - **File cài đặt:** `AdShieldPro-Unsigned.ipa` (chưa ký, đã gắn fake-sign `ldid` cho TrollStore / ESign / Feather / Sideloadly / AltStore).
-            - **Commit:** `${{ github.sha }}`
-            - **Tính năng:** Chặn quảng cáo toàn hệ thống qua DNS-over-HTTPS (DoH) + Safari Content Blocker Extension.
+            ### AdShield Pro v1.3 - Bản Build Tự Động #${{ github.run_number }}
+            - **File cài đặt:** `AdShieldPro-Unsigned.ipa`
+            - **Tính năng mới:**
+              1. **Khóa Mở Trang Khác (Strict Link Lock):** Khi bật nút này, bấm vào bất kỳ liên kết nào trên trang cũng không mở sang trang khác.
+              2. **Nhấn Giữ (0.6s) Vào Panel Trên Web Để Chặn:** Nhấn giữ vào bất kỳ khung/banner nào trên trang để ẩn vĩnh viễn (trên Safari thông qua `AdShield Web Guard` hoặc trong trình duyệt tích hợp).
+              3. **220+ Quy Tắc Chặn Quảng Cáo & Nhà Cái:** Mở rộng danh sách chặn hơn 105+ nhà cái, popup nhảy trang, banner động GIF và mạng quảng cáo toàn hệ thống.
           files: AdShieldPro-Unsigned.ipa
           draft: false
           prerelease: false

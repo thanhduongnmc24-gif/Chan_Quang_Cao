@@ -2,9 +2,6 @@
   {
     "trigger": {
       "url-filter": "^https?://",
-      "load-type": [
-        "third-party"
-      ],
       "resource-type": [
         "popup"
       ]
@@ -51,7 +48,31 @@
   },
   {
     "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?admob\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
       "url-filter": "^https?://+([^/:]+\\.)?moatads\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?2mdn\\.net[:/]",
       "load-type": [
         "third-party",
         "first-party"
@@ -111,6 +132,18 @@
   },
   {
     "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?isprog\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
       "url-filter": "^https?://+([^/:]+\\.)?vungle\\.com[:/]",
       "load-type": [
         "third-party",
@@ -124,6 +157,18 @@
   {
     "trigger": {
       "url-filter": "^https?://+([^/:]+\\.)?rayjump\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?mintegral\\.com[:/]",
       "load-type": [
         "third-party",
         "first-party"
@@ -219,6 +264,186 @@
   },
   {
     "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?tapjoy\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?startappservice\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?fyber\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?pangle\\.io[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?revcontent\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?zergnet\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?teads\\.tv[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?amazon-adsystem\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?media\\.net[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?adroll\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?rubiconproject\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?pubmatic\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?openx\\.net[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?casalemedia\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?smartadserver\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
       "url-filter": "^https?://+([^/:]+\\.)?popads\\.net[:/]",
       "load-type": [
         "third-party",
@@ -303,6 +528,18 @@
   },
   {
     "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?profitablecpmrate\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
       "url-filter": "^https?://+([^/:]+\\.)?exoclick\\.com[:/]",
       "load-type": [
         "third-party",
@@ -340,6 +577,18 @@
   {
     "trigger": {
       "url-filter": "^https?://+([^/:]+\\.)?trafficjunky\\.net[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?trafficstars\\.com[:/]",
       "load-type": [
         "third-party",
         "first-party"
@@ -412,6 +661,138 @@
   {
     "trigger": {
       "url-filter": "^https?://+([^/:]+\\.)?onclkds\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?onclickads\\.net[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?bidvertiser\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?plugrush\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?popmyads\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?adxpansion\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?ero-advertising\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?a-ads\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?richads\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?evadav\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?push\\.house[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?rollerads\\.com[:/]",
       "load-type": [
         "third-party",
         "first-party"
@@ -507,6 +888,66 @@
   },
   {
     "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?adflex\\.vn[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?accesstrade\\.vn[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?novaon\\.asia[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?adx\\.vn[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?adop\\.cc[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
       "url-filter": "^https?://+([^/:]+\\.)?mgid\\.com[:/]",
       "load-type": [
         "third-party",
@@ -532,6 +973,30 @@
   {
     "trigger": {
       "url-filter": "^https?://+([^/:]+\\.)?adskeeper\\.co\\.uk[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?dable\\.io[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?popsww\\.com[:/]",
       "load-type": [
         "third-party",
         "first-party"
@@ -603,7 +1068,43 @@
   },
   {
     "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?kochava\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?singular\\.net[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
       "url-filter": "^https?://+([^/:]+\\.)?mixpanel\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?amplitude\\.com[:/]",
       "load-type": [
         "third-party",
         "first-party"
@@ -628,6 +1129,18 @@
   {
     "trigger": {
       "url-filter": "^https?://+([^/:]+\\.)?hotjar\\.com[:/]",
+      "load-type": [
+        "third-party",
+        "first-party"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?clarity\\.ms[:/]",
       "load-type": [
         "third-party",
         "first-party"
@@ -675,13 +1188,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*k88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*k88.*"
     },
     "action": {
       "type": "block"
@@ -689,13 +1196,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*du88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*du88.*"
     },
     "action": {
       "type": "block"
@@ -703,13 +1204,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*man88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*man88.*"
     },
     "action": {
       "type": "block"
@@ -717,13 +1212,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*xibet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*xibet.*"
     },
     "action": {
       "type": "block"
@@ -731,13 +1220,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*uk88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*uk88.*"
     },
     "action": {
       "type": "block"
@@ -745,13 +1228,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*ok9.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*ok9.*"
     },
     "action": {
       "type": "block"
@@ -759,13 +1236,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*shbet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*shbet.*"
     },
     "action": {
       "type": "block"
@@ -773,13 +1244,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*hi88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*hi88.*"
     },
     "action": {
       "type": "block"
@@ -787,13 +1252,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*jun88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*jun88.*"
     },
     "action": {
       "type": "block"
@@ -801,13 +1260,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*new88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*new88.*"
     },
     "action": {
       "type": "block"
@@ -815,13 +1268,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*f8bet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*f8bet.*"
     },
     "action": {
       "type": "block"
@@ -829,13 +1276,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*789bet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*789bet.*"
     },
     "action": {
       "type": "block"
@@ -843,13 +1284,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*mb66.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*mb66.*"
     },
     "action": {
       "type": "block"
@@ -857,13 +1292,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*8kbet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*8kbet.*"
     },
     "action": {
       "type": "block"
@@ -871,13 +1300,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*go88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*go88.*"
     },
     "action": {
       "type": "block"
@@ -885,13 +1308,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*sunwin.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*sunwin.*"
     },
     "action": {
       "type": "block"
@@ -899,13 +1316,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*rikvip.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*rikvip.*"
     },
     "action": {
       "type": "block"
@@ -913,13 +1324,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*hitclub.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*hitclub.*"
     },
     "action": {
       "type": "block"
@@ -927,13 +1332,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*b52club.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*b52club.*"
     },
     "action": {
       "type": "block"
@@ -941,13 +1340,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*kubet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*kubet.*"
     },
     "action": {
       "type": "block"
@@ -955,13 +1348,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*ku11.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*ku11.*"
     },
     "action": {
       "type": "block"
@@ -969,13 +1356,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*tha88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*tha88.*"
     },
     "action": {
       "type": "block"
@@ -983,13 +1364,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*bong88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*bong88.*"
     },
     "action": {
       "type": "block"
@@ -997,13 +1372,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*sbobet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*sbobet.*"
     },
     "action": {
       "type": "block"
@@ -1011,13 +1380,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*w88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*w88.*"
     },
     "action": {
       "type": "block"
@@ -1025,13 +1388,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*m88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*m88.*"
     },
     "action": {
       "type": "block"
@@ -1039,13 +1396,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*fun88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*fun88.*"
     },
     "action": {
       "type": "block"
@@ -1053,13 +1404,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*fb88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*fb88.*"
     },
     "action": {
       "type": "block"
@@ -1067,13 +1412,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*188bet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*188bet.*"
     },
     "action": {
       "type": "block"
@@ -1081,13 +1420,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*vn88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*vn88.*"
     },
     "action": {
       "type": "block"
@@ -1095,13 +1428,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*v9bet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*v9bet.*"
     },
     "action": {
       "type": "block"
@@ -1109,13 +1436,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*bk8.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*bk8.*"
     },
     "action": {
       "type": "block"
@@ -1123,13 +1444,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*dabet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*dabet.*"
     },
     "action": {
       "type": "block"
@@ -1137,13 +1452,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*fabet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*fabet.*"
     },
     "action": {
       "type": "block"
@@ -1151,13 +1460,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*debet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*debet.*"
     },
     "action": {
       "type": "block"
@@ -1165,13 +1468,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*red88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*red88.*"
     },
     "action": {
       "type": "block"
@@ -1179,13 +1476,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*zbet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*zbet.*"
     },
     "action": {
       "type": "block"
@@ -1193,13 +1484,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*five88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*five88.*"
     },
     "action": {
       "type": "block"
@@ -1207,13 +1492,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*lucky88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*lucky88.*"
     },
     "action": {
       "type": "block"
@@ -1221,13 +1500,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*mibet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*mibet.*"
     },
     "action": {
       "type": "block"
@@ -1235,13 +1508,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*nbet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*nbet.*"
     },
     "action": {
       "type": "block"
@@ -1249,13 +1516,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*one88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*one88.*"
     },
     "action": {
       "type": "block"
@@ -1263,13 +1524,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*oxbet.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*oxbet.*"
     },
     "action": {
       "type": "block"
@@ -1277,13 +1532,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*sin88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*sin88.*"
     },
     "action": {
       "type": "block"
@@ -1291,13 +1540,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*sky88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*sky88.*"
     },
     "action": {
       "type": "block"
@@ -1305,13 +1548,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*sv88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*sv88.*"
     },
     "action": {
       "type": "block"
@@ -1319,13 +1556,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*ta88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*ta88.*"
     },
     "action": {
       "type": "block"
@@ -1333,13 +1564,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*xo88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*xo88.*"
     },
     "action": {
       "type": "block"
@@ -1347,13 +1572,447 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://.*bet88.*",
-      "resource-type": [
-        "image",
-        "script",
-        "popup",
-        "raw"
-      ]
+      "url-filter": "^https?://.*bet88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*79king.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*33win.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*88clb.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*99ok.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*abc8.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*alo789.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*bet168.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*bet365.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*bj88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*cmd368.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*da88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*dafabet.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*ee88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*fc88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*five88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*ga88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*gk88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*hb88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*hello88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*i9bet.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*j88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*k9win.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*king88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*kkwin.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*kuwin.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*leo88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*lu88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*may88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*mcw.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*mu88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*net88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*nohu.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*ok365.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*onbet.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*qh88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*rr88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*s666.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*sa88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*soc88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*sumvip.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*sv388.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*tf88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*thabet.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*tk88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*top88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*twin68.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*typhu88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*u888.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*vip79.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*vuabet.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*win55.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*win79.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*win88.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*x8club.*"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*yo88.*"
     },
     "action": {
       "type": "block"
@@ -1364,7 +2023,21 @@
       "url-filter": "^https?://.*/banners/.*",
       "resource-type": [
         "image",
-        "script"
+        "script",
+        "raw"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*/banner-ads/.*",
+      "resource-type": [
+        "image",
+        "script",
+        "raw"
       ]
     },
     "action": {
@@ -1376,7 +2049,8 @@
       "url-filter": "^https?://.*/quangcao/.*",
       "resource-type": [
         "image",
-        "script"
+        "script",
+        "raw"
       ]
     },
     "action": {
@@ -1388,7 +2062,8 @@
       "url-filter": "^https?://.*/quang-cao/.*",
       "resource-type": [
         "image",
-        "script"
+        "script",
+        "raw"
       ]
     },
     "action": {
@@ -1400,7 +2075,8 @@
       "url-filter": "^https?://.*/catfish/.*",
       "resource-type": [
         "image",
-        "script"
+        "script",
+        "raw"
       ]
     },
     "action": {
@@ -1412,7 +2088,21 @@
       "url-filter": "^https?://.*/float-ads/.*",
       "resource-type": [
         "image",
-        "script"
+        "script",
+        "raw"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*/floating-ads/.*",
+      "resource-type": [
+        "image",
+        "script",
+        "raw"
       ]
     },
     "action": {
@@ -1424,7 +2114,99 @@
       "url-filter": "^https?://.*/popup-ads/.*",
       "resource-type": [
         "image",
-        "script"
+        "script",
+        "raw"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*/sticky-ads/.*",
+      "resource-type": [
+        "image",
+        "script",
+        "raw"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*/bet-ads/.*",
+      "resource-type": [
+        "image",
+        "script",
+        "raw"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*/nhacai/.*",
+      "resource-type": [
+        "image",
+        "script",
+        "raw"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*/nha-cai/.*",
+      "resource-type": [
+        "image",
+        "script",
+        "raw"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*/qc-banner/.*",
+      "resource-type": [
+        "image",
+        "script",
+        "raw"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*/ads-gif/.*",
+      "resource-type": [
+        "image",
+        "script",
+        "raw"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://.*/gif-ads/.*",
+      "resource-type": [
+        "image",
+        "script",
+        "raw"
       ]
     },
     "action": {
@@ -1437,7 +2219,7 @@
     },
     "action": {
       "type": "css-display-none",
-      "selector": ".ad-banner, .adsbox, .adsbygoogle, .sponsored-post, .dfp-ad, .ad-container, .banner-top, .banner-bottom, .ad-slot, .ad-wrapper, .ad-unit, .ad-zone, .ad-space, .ad-holder, .ad-block, .widget_ads, .custom-ads, #div-gpt-ad"
+      "selector": ".ad-banner, .adsbox, .adsbygoogle, .sponsored-post, .dfp-ad, .ad-container, .banner-top, .banner-bottom, .ad-slot, .ad-wrapper, .ad-unit, .ad-zone, .ad-space, .ad-holder, .ad-block, .widget_ads, .custom-ads, #div-gpt-ad, .ad-leaderboard, .ad-sidebar, .ad-rectangle, .ad-sky, .ad-footer, .ad-header, .ad-overlay"
     }
   },
   {
@@ -1446,7 +2228,7 @@
     },
     "action": {
       "type": "css-display-none",
-      "selector": "#float_ck, #hide_float_ck, .float-ck, #catfish, .catfish, .catfish-ads, #catfish-ads, .banner-catfish, #banner-catfish, .ads-catfish, #ads-catfish, .popup-ads, #popup-ads, .modal-ads, #modal-ads, .ads-popup, #ads-popup, .overlay-ads, #overlay-ads, .qc-banner, .banner-qc, .list-qc, #qc-left, #qc-right, .qc-left, .qc-right, .ads-left, .ads-right, #ads-left, #ads-right, .float-ads, #float-ads, .floating-ads, #floating-ads, .sticky-ads, #sticky-ads, .bottom-ads, #bottom-ads, .top-ads, #top-ads, .header-ads, .footer-ads, .under-player-ads, .player-ads, .preload-ads, #preload-ads, .ads-pc, .ads-mb, .ads-mobile"
+      "selector": "#float_ck, #hide_float_ck, .float-ck, #catfish, .catfish, .catfish-ads, #catfish-ads, .banner-catfish, #banner-catfish, .ads-catfish, #ads-catfish, .popup-ads, #popup-ads, .modal-ads, #modal-ads, .ads-popup, #ads-popup, .overlay-ads, #overlay-ads, .qc-banner, .banner-qc, .list-qc, #qc-left, #qc-right, .qc-left, .qc-right, .ads-left, .ads-right, #ads-left, #ads-right, .float-ads, #float-ads, .floating-ads, #floating-ads, .sticky-ads, #sticky-ads, .bottom-ads, #bottom-ads, .top-ads, #top-ads, .header-ads, .footer-ads, .under-player-ads, .player-ads, .preload-ads, #preload-ads, .ads-pc, .ads-mb, .ads-mobile, .banner-float, #banner-float, .popup-banner, #popup-banner, .ad-catfish, #ad-catfish, .fixed-bottom-ad, .sticky-bottom-ad"
     }
   },
   {
@@ -1455,7 +2237,16 @@
     },
     "action": {
       "type": "css-display-none",
-      "selector": "a[href*='k88'], img[src*='k88'], div[id*='k88'], div[class*='k88'], a[href*='du88'], img[src*='du88'], div[id*='du88'], div[class*='du88'], a[href*='man88'], img[src*='man88'], div[id*='man88'], div[class*='man88'], a[href*='xibet'], img[src*='xibet'], div[id*='xibet'], div[class*='xibet'], a[href*='uk88'], img[src*='uk88'], div[id*='uk88'], div[class*='uk88'], a[href*='ok9'], img[src*='ok9'], div[id*='ok9'], div[class*='ok9'], a[href*='shbet'], img[src*='shbet'], div[id*='shbet'], div[class*='shbet'], a[href*='hi88'], img[src*='hi88'], div[id*='hi88'], div[class*='hi88'], a[href*='jun88'], img[src*='jun88'], div[id*='jun88'], div[class*='jun88'], a[href*='new88'], img[src*='new88'], div[id*='new88'], div[class*='new88'], a[href*='f8bet'], img[src*='f8bet'], div[id*='f8bet'], div[class*='f8bet'], a[href*='789bet'], img[src*='789bet'], div[id*='789bet'], div[class*='789bet'], a[href*='mb66'], img[src*='mb66'], div[id*='mb66'], div[class*='mb66'], a[href*='8kbet'], img[src*='8kbet'], div[id*='8kbet'], div[class*='8kbet'], a[href*='go88'], img[src*='go88'], div[id*='go88'], div[class*='go88'], a[href*='sunwin'], img[src*='sunwin'], div[id*='sunwin'], div[class*='sunwin'], a[href*='rikvip'], img[src*='rikvip'], div[id*='rikvip'], div[class*='rikvip'], a[href*='hitclub'], img[src*='hitclub'], div[id*='hitclub'], div[class*='hitclub'], a[href*='b52club'], img[src*='b52club'], div[id*='b52club'], div[class*='b52club'], a[href*='kubet'], img[src*='kubet'], div[id*='kubet'], div[class*='kubet'], a[href*='ku11'], img[src*='ku11'], div[id*='ku11'], div[class*='ku11'], a[href*='tha88'], img[src*='tha88'], div[id*='tha88'], div[class*='tha88'], a[href*='bong88'], img[src*='bong88'], div[id*='bong88'], div[class*='bong88'], a[href*='sbobet'], img[src*='sbobet'], div[id*='sbobet'], div[class*='sbobet'], a[href*='w88'], img[src*='w88'], div[id*='w88'], div[class*='w88'], a[href*='m88'], img[src*='m88'], div[id*='m88'], div[class*='m88'], a[href*='fun88'], img[src*='fun88'], div[id*='fun88'], div[class*='fun88'], a[href*='fb88'], img[src*='fb88'], div[id*='fb88'], div[class*='fb88'], a[href*='188bet'], img[src*='188bet'], div[id*='188bet'], div[class*='188bet'], a[href*='vn88'], img[src*='vn88'], div[id*='vn88'], div[class*='vn88'], a[href*='v9bet'], img[src*='v9bet'], div[id*='v9bet'], div[class*='v9bet'], a[href*='bk8'], img[src*='bk8'], div[id*='bk8'], div[class*='bk8'], a[href*='dabet'], img[src*='dabet'], div[id*='dabet'], div[class*='dabet'], a[href*='fabet'], img[src*='fabet'], div[id*='fabet'], div[class*='fabet'], a[href*='debet'], img[src*='debet'], div[id*='debet'], div[class*='debet'], a[href*='red88'], img[src*='red88'], div[id*='red88'], div[class*='red88'], a[href*='zbet'], img[src*='zbet'], div[id*='zbet'], div[class*='zbet'], a[href*='five88'], img[src*='five88'], div[id*='five88'], div[class*='five88'], a[href*='lucky88'], img[src*='lucky88'], div[id*='lucky88'], div[class*='lucky88'], a[href*='mibet'], img[src*='mibet'], div[id*='mibet'], div[class*='mibet'], a[href*='nbet'], img[src*='nbet'], div[id*='nbet'], div[class*='nbet'], a[href*='one88'], img[src*='one88'], div[id*='one88'], div[class*='one88'], a[href*='oxbet'], img[src*='oxbet'], div[id*='oxbet'], div[class*='oxbet'], a[href*='sin88'], img[src*='sin88'], div[id*='sin88'], div[class*='sin88'], a[href*='sky88'], img[src*='sky88'], div[id*='sky88'], div[class*='sky88'], a[href*='sv88'], img[src*='sv88'], div[id*='sv88'], div[class*='sv88'], a[href*='ta88'], img[src*='ta88'], div[id*='ta88'], div[class*='ta88'], a[href*='xo88'], img[src*='xo88'], div[id*='xo88'], div[class*='xo88'], a[href*='bet88'], img[src*='bet88'], div[id*='bet88'], div[class*='bet88'], a[target='_blank'] > img[src*='.gif']"
+      "selector": "a[href*='k88'], img[src*='k88'], div[id*='k88'], div[class*='k88'], a[href*='du88'], img[src*='du88'], div[id*='du88'], div[class*='du88'], a[href*='man88'], img[src*='man88'], div[id*='man88'], div[class*='man88'], a[href*='xibet'], img[src*='xibet'], div[id*='xibet'], div[class*='xibet'], a[href*='uk88'], img[src*='uk88'], div[id*='uk88'], div[class*='uk88'], a[href*='ok9'], img[src*='ok9'], div[id*='ok9'], div[class*='ok9'], a[href*='shbet'], img[src*='shbet'], div[id*='shbet'], div[class*='shbet'], a[href*='hi88'], img[src*='hi88'], div[id*='hi88'], div[class*='hi88'], a[href*='jun88'], img[src*='jun88'], div[id*='jun88'], div[class*='jun88'], a[href*='new88'], img[src*='new88'], div[id*='new88'], div[class*='new88'], a[href*='f8bet'], img[src*='f8bet'], div[id*='f8bet'], div[class*='f8bet'], a[href*='789bet'], img[src*='789bet'], div[id*='789bet'], div[class*='789bet'], a[href*='mb66'], img[src*='mb66'], div[id*='mb66'], div[class*='mb66'], a[href*='8kbet'], img[src*='8kbet'], div[id*='8kbet'], div[class*='8kbet'], a[href*='go88'], img[src*='go88'], div[id*='go88'], div[class*='go88'], a[href*='sunwin'], img[src*='sunwin'], div[id*='sunwin'], div[class*='sunwin'], a[href*='rikvip'], img[src*='rikvip'], div[id*='rikvip'], div[class*='rikvip'], a[href*='hitclub'], img[src*='hitclub'], div[id*='hitclub'], div[class*='hitclub'], a[href*='b52club'], img[src*='b52club'], div[id*='b52club'], div[class*='b52club'], a[href*='kubet'], img[src*='kubet'], div[id*='kubet'], div[class*='kubet'], a[href*='ku11'], img[src*='ku11'], div[id*='ku11'], div[class*='ku11'], a[href*='tha88'], img[src*='tha88'], div[id*='tha88'], div[class*='tha88'], a[href*='bong88'], img[src*='bong88'], div[id*='bong88'], div[class*='bong88'], a[href*='sbobet'], img[src*='sbobet'], div[id*='sbobet'], div[class*='sbobet'], a[href*='w88'], img[src*='w88'], div[id*='w88'], div[class*='w88'], a[href*='m88'], img[src*='m88'], div[id*='m88'], div[class*='m88'], a[href*='fun88'], img[src*='fun88'], div[id*='fun88'], div[class*='fun88'], a[href*='fb88'], img[src*='fb88'], div[id*='fb88'], div[class*='fb88'], a[href*='188bet'], img[src*='188bet'], div[id*='188bet'], div[class*='188bet'], a[href*='vn88'], img[src*='vn88'], div[id*='vn88'], div[class*='vn88'], a[href*='v9bet'], img[src*='v9bet'], div[id*='v9bet'], div[class*='v9bet'], a[href*='bk8'], img[src*='bk8'], div[id*='bk8'], div[class*='bk8'], a[href*='dabet'], img[src*='dabet'], div[id*='dabet'], div[class*='dabet'], a[href*='fabet'], img[src*='fabet'], div[id*='fabet'], div[class*='fabet'], a[href*='debet'], img[src*='debet'], div[id*='debet'], div[class*='debet'], a[href*='red88'], img[src*='red88'], div[id*='red88'], div[class*='red88'], a[href*='zbet'], img[src*='zbet'], div[id*='zbet'], div[class*='zbet'], a[href*='five88'], img[src*='five88'], div[id*='five88'], div[class*='five88'], a[href*='lucky88'], img[src*='lucky88'], div[id*='lucky88'], div[class*='lucky88'], a[href*='mibet'], img[src*='mibet'], div[id*='mibet'], div[class*='mibet'], a[href*='nbet'], img[src*='nbet'], div[id*='nbet'], div[class*='nbet'], a[href*='one88'], img[src*='one88'], div[id*='one88'], div[class*='one88'], a[href*='oxbet'], img[src*='oxbet'], div[id*='oxbet'], div[class*='oxbet'], a[href*='sin88'], img[src*='sin88'], div[id*='sin88'], div[class*='sin88'], a[href*='sky88'], img[src*='sky88'], div[id*='sky88'], div[class*='sky88'], a[href*='sv88'], img[src*='sv88'], div[id*='sv88'], div[class*='sv88'], a[href*='ta88'], img[src*='ta88'], div[id*='ta88'], div[class*='ta88'], a[href*='xo88'], img[src*='xo88'], div[id*='xo88'], div[class*='xo88'], a[href*='bet88'], img[src*='bet88'], div[id*='bet88'], div[class*='bet88'], a[href*='79king'], img[src*='79king'], div[id*='79king'], div[class*='79king']"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": ".*"
+    },
+    "action": {
+      "type": "css-display-none",
+      "selector": "a[href*='33win'], img[src*='33win'], div[id*='33win'], div[class*='33win'], a[href*='88clb'], img[src*='88clb'], div[id*='88clb'], div[class*='88clb'], a[href*='99ok'], img[src*='99ok'], div[id*='99ok'], div[class*='99ok'], a[href*='abc8'], img[src*='abc8'], div[id*='abc8'], div[class*='abc8'], a[href*='alo789'], img[src*='alo789'], div[id*='alo789'], div[class*='alo789'], a[href*='bet168'], img[src*='bet168'], div[id*='bet168'], div[class*='bet168'], a[href*='bet365'], img[src*='bet365'], div[id*='bet365'], div[class*='bet365'], a[href*='bj88'], img[src*='bj88'], div[id*='bj88'], div[class*='bj88'], a[href*='cmd368'], img[src*='cmd368'], div[id*='cmd368'], div[class*='cmd368'], a[href*='da88'], img[src*='da88'], div[id*='da88'], div[class*='da88'], a[href*='dafabet'], img[src*='dafabet'], div[id*='dafabet'], div[class*='dafabet'], a[href*='ee88'], img[src*='ee88'], div[id*='ee88'], div[class*='ee88'], a[href*='fc88'], img[src*='fc88'], div[id*='fc88'], div[class*='fc88'], a[href*='five88'], img[src*='five88'], div[id*='five88'], div[class*='five88'], a[href*='ga88'], img[src*='ga88'], div[id*='ga88'], div[class*='ga88'], a[href*='gk88'], img[src*='gk88'], div[id*='gk88'], div[class*='gk88'], a[href*='hb88'], img[src*='hb88'], div[id*='hb88'], div[class*='hb88'], a[href*='hello88'], img[src*='hello88'], div[id*='hello88'], div[class*='hello88'], a[href*='i9bet'], img[src*='i9bet'], div[id*='i9bet'], div[class*='i9bet'], a[href*='j88'], img[src*='j88'], div[id*='j88'], div[class*='j88'], a[href*='k9win'], img[src*='k9win'], div[id*='k9win'], div[class*='k9win'], a[href*='king88'], img[src*='king88'], div[id*='king88'], div[class*='king88'], a[href*='kkwin'], img[src*='kkwin'], div[id*='kkwin'], div[class*='kkwin'], a[href*='kuwin'], img[src*='kuwin'], div[id*='kuwin'], div[class*='kuwin'], a[href*='leo88'], img[src*='leo88'], div[id*='leo88'], div[class*='leo88'], a[href*='lu88'], img[src*='lu88'], div[id*='lu88'], div[class*='lu88'], a[href*='may88'], img[src*='may88'], div[id*='may88'], div[class*='may88'], a[href*='mcw'], img[src*='mcw'], div[id*='mcw'], div[class*='mcw'], a[href*='mu88'], img[src*='mu88'], div[id*='mu88'], div[class*='mu88'], a[href*='net88'], img[src*='net88'], div[id*='net88'], div[class*='net88'], a[href*='nohu'], img[src*='nohu'], div[id*='nohu'], div[class*='nohu'], a[href*='ok365'], img[src*='ok365'], div[id*='ok365'], div[class*='ok365'], a[href*='onbet'], img[src*='onbet'], div[id*='onbet'], div[class*='onbet'], a[href*='qh88'], img[src*='qh88'], div[id*='qh88'], div[class*='qh88'], a[href*='rr88'], img[src*='rr88'], div[id*='rr88'], div[class*='rr88'], a[href*='s666'], img[src*='s666'], div[id*='s666'], div[class*='s666'], a[href*='sa88'], img[src*='sa88'], div[id*='sa88'], div[class*='sa88'], a[href*='soc88'], img[src*='soc88'], div[id*='soc88'], div[class*='soc88'], a[href*='sumvip'], img[src*='sumvip'], div[id*='sumvip'], div[class*='sumvip'], a[href*='sv388'], img[src*='sv388'], div[id*='sv388'], div[class*='sv388'], a[href*='tf88'], img[src*='tf88'], div[id*='tf88'], div[class*='tf88'], a[href*='thabet'], img[src*='thabet'], div[id*='thabet'], div[class*='thabet'], a[href*='tk88'], img[src*='tk88'], div[id*='tk88'], div[class*='tk88'], a[href*='top88'], img[src*='top88'], div[id*='top88'], div[class*='top88'], a[href*='twin68'], img[src*='twin68'], div[id*='twin68'], div[class*='twin68'], a[href*='typhu88'], img[src*='typhu88'], div[id*='typhu88'], div[class*='typhu88'], a[href*='u888'], img[src*='u888'], div[id*='u888'], div[class*='u888'], a[href*='vip79'], img[src*='vip79'], div[id*='vip79'], div[class*='vip79'], a[href*='vuabet'], img[src*='vuabet'], div[id*='vuabet'], div[class*='vuabet'], a[href*='win55'], img[src*='win55'], div[id*='win55'], div[class*='win55'], a[href*='win79'], img[src*='win79'], div[id*='win79'], div[class*='win79'], a[href*='win88'], img[src*='win88'], div[id*='win88'], div[class*='win88'], a[href*='x8club'], img[src*='x8club'], div[id*='x8club'], div[class*='x8club'], a[href*='yo88'], img[src*='yo88'], div[id*='yo88'], div[class*='yo88'], a[target='_blank'] > img[src*='.gif']"
     }
   }
 ]
