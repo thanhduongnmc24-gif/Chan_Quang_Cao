@@ -1,5 +1,5 @@
 import SwiftUI
-import WebKit
+@preconcurrency import WebKit
 
 struct WebInspectorBrowserView: View {
     @EnvironmentObject var ruleStore: BlockerRuleStore

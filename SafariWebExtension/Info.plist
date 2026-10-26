@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>vi</string>
 	<key>CFBundleDisplayName</key>
-	<string>AdShield Web Guard (Chặn Nhảy Trang &amp; Nhấn Giữ Xóa Khung)</string>
+	<string>AdShield Web Guard</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -26,6 +26,8 @@
 		<string>com.apple.Safari.web-extension</string>
 		<key>NSExtensionPrincipalClass</key>
 		<string>$(PRODUCT_MODULE_NAME).SafariWebExtensionHandler</string>
+		<key>SFSafariWebExtensionManifestPath</key>
+		<string>manifest.json</string>
 	</dict>
 </dict>
 </plist>
