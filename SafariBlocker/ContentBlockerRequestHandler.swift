@@ -1,15 +1,16 @@
-import UIKit
-import MobileCoreServices
+import Foundation
 
 class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
     private let appGroupID = "group.com.adshield.pro"
     private let sharedRulesFileName = "sharedBlockerList.json"
 
     func beginRequest(with context: NSExtensionContext) {
-        // 1. Prefer dynamic rules edited inside the main AdShieldPro app via App Group
+        // 1. Try loading custom rules from shared App Group if valid and non-empty
         if let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupID) {
             let sharedFileURL = groupURL.appendingPathComponent(sharedRulesFileName)
-            if FileManager.default.fileExists(atPath: sharedFileURL.path),
+            if let data = try? Data(contentsOf: sharedFileURL),
+               !data.isEmpty,
+               (try? JSONSerialization.jsonObject(with: data)) != nil,
                let attachment = NSItemProvider(contentsOf: sharedFileURL) {
                 let item = NSExtensionItem()
                 item.attachments = [attachment]

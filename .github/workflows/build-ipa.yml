@@ -45,6 +45,7 @@ jobs:
       - name: Generate Xcode Project from project.yml
         run: |
           xcodegen generate
+          # Ensure compatibility with Xcode 15.x and 16.x by replacing objectVersion 77 -> 56 if present
           sed -i '' 's/objectVersion = 77;/objectVersion = 56;/g' AdShieldPro.xcodeproj/project.pbxproj
           sed -i '' 's/preferredProjectObjectVersion = 77;/preferredProjectObjectVersion = 56;/g' AdShieldPro.xcodeproj/project.pbxproj
 

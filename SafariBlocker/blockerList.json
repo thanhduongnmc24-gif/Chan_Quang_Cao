@@ -1,7 +1,7 @@
 [
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*doubleclick\\.net(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?doubleclick\\.net[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -10,7 +10,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*googleadservices\\.com(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?googleadservices\\.com[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -19,7 +19,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*googlesyndication\\.com(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?googlesyndication\\.com[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -28,7 +28,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*applovin\\.com(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?applovin\\.com[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -37,7 +37,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*unityads\\.unity3d\\.com(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?unity3d\\.com[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -46,7 +46,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*supersonicads\\.com(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?supersonicads\\.com[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -55,7 +55,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*vungle\\.com(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?vungle\\.com[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -64,7 +64,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*taboola\\.com(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?taboola\\.com[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -73,7 +73,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*outbrain\\.com(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?outbrain\\.com[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -82,7 +82,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*criteo\\.com(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?criteo\\.com[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -91,7 +91,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*popads\\.net(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?popads\\.net[:/]",
       "load-type": ["third-party", "first-party"]
     },
     "action": {
@@ -100,7 +100,25 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*google-analytics\\.com(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?admicro\\.vn[:/]",
+      "load-type": ["third-party", "first-party"]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?eclick\\.vn[:/]",
+      "load-type": ["third-party", "first-party"]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": "^https?://+([^/:]+\\.)?google-analytics\\.com[:/]",
       "load-type": ["third-party"]
     },
     "action": {
@@ -109,7 +127,7 @@
   },
   {
     "trigger": {
-      "url-filter": "^https?://([a-z0-9-]+\\.)*connect\\.facebook\\.net(/|:|$)",
+      "url-filter": "^https?://+([^/:]+\\.)?connect\\.facebook\\.net[:/]",
       "load-type": ["third-party"]
     },
     "action": {
@@ -122,7 +140,7 @@
     },
     "action": {
       "type": "css-display-none",
-      "selector": ".ad-banner, .adsbox, .adsbygoogle, [id^='google_ads_'], .sponsored-post, .dfp-ad, .ad-container"
+      "selector": ".ad-banner, .adsbox, .adsbygoogle, .sponsored-post, .dfp-ad, .ad-container"
     }
   }
 ]
