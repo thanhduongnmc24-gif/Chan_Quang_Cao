@@ -1,0 +1,75 @@
+name: Build Unsigned iOS IPA
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-unsigned-ipa:
+    name: Build AdShieldPro Unsigned IPA
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode Version
+        run: |
+          sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+          xcodebuild -version
+
+      - name: Install XcodeGen
+        run: |
+          if ! command -v xcodegen &> /dev/null; then
+            brew install xcodegen
+          fi
+
+      - name: Generate Xcode Project from project.yml
+        run: |
+          xcodegen generate
+
+      - name: Build Unsigned .app (Release - iphoneos)
+        run: |
+          xcodebuild clean build \
+            -project AdShieldPro.xcodeproj \
+            -scheme AdShieldPro \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Fake-Sign with ldid (Optional for TrollStore / Sideloadly compatibility)
+        run: |
+          if ! command -v ldid &> /dev/null; then
+            brew install ldid
+          fi
+          APP_PATH="build/Build/Products/Release-iphoneos/AdShieldPro.app"
+          if [ -d "$APP_PATH/PlugIns/SafariBlocker.appex" ]; then
+            ldid -SSafariBlocker/SafariBlocker.entitlements "$APP_PATH/PlugIns/SafariBlocker.appex/SafariBlocker" || true
+          fi
+          ldid -SAdShieldPro/AdShieldPro.entitlements "$APP_PATH/AdShieldPro" || true
+
+      - name: Package into Unsigned IPA
+        run: |
+          mkdir -p Payload
+          cp -R "build/Build/Products/Release-iphoneos/AdShieldPro.app" Payload/
+          zip -r9 AdShieldPro-Unsigned.ipa Payload
+          rm -rf Payload
+          ls -lh AdShieldPro-Unsigned.ipa
+
+      - name: Upload Unsigned IPA Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AdShieldPro-Unsigned-IPA
+          path: AdShieldPro-Unsigned.ipa
+          if-no-files-found: error
+          retention-days: 30

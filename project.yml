@@ -1,0 +1,57 @@
+name: AdShieldPro
+options:
+  bundleIdPrefix: com.adshield
+  deploymentTarget:
+    iOS: "15.0"
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    TARGETED_DEVICE_FAMILY: "1"
+    IPHONEOS_DEPLOYMENT_TARGET: "15.0"
+    CODE_SIGN_IDENTITY: ""
+    CODE_SIGNING_REQUIRED: "NO"
+    CODE_SIGNING_ALLOWED: "NO"
+    ENABLE_BITCODE: "NO"
+
+targets:
+  AdShieldPro:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - path: AdShieldPro
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.adshield.pro
+        INFOPLIST_FILE: AdShieldPro/Info.plist
+        CODE_SIGN_ENTITLEMENTS: AdShieldPro/AdShieldPro.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+    dependencies:
+      - target: SafariBlocker
+        embed: true
+      - sdk: NetworkExtension.framework
+      - sdk: SafariServices.framework
+
+  SafariBlocker:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - path: SafariBlocker
+        excludes:
+          - "**/*.plist"
+          - "**/*.entitlements"
+      - path: SafariBlocker/blockerList.json
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.adshield.pro.SafariBlocker
+        INFOPLIST_FILE: SafariBlocker/Info.plist
+        CODE_SIGN_ENTITLEMENTS: SafariBlocker/SafariBlocker.entitlements
+        SKIP_INSTALL: "YES"
+    dependencies:
+      - sdk: SafariServices.framework

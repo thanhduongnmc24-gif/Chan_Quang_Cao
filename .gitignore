@@ -1,0 +1,9 @@
+# Xcode / macOS
+build/
+DerivedData/
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+*.ipa
+Payload/
+.DS_Store
